@@ -1,6 +1,6 @@
 # Week 1
 
-#### 1) Single Number
+### 1) Single Number
 
 Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
@@ -30,7 +30,7 @@ var singleNumber = function(nums) {
 };
 ```
 
-#### 2) Happy Number
+### 2) Happy Number
 
 Write an algorithm to determine if a number is "happy".
 
@@ -65,4 +65,29 @@ var isHappy = function(n) {
         return isHappy(piecesSum);
     }
 };
+```
+
+### 3) Maximum Subarray
+
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+ex)
+```
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+```
+
+```
+var maxSubArray = function(nums) {
+    
+    var prev = 0;
+    var max = -Number.MAX_VALUE;
+    
+    for (var i = 0; i < nums.length; i++){
+        prev = Math.max(prev + nums[i], nums[i]);
+        max = Math.max(max,prev);
+    }
+    return max;
+}; 
 ```
