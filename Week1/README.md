@@ -47,6 +47,7 @@ Explanation:
 12 + 02 + 02 = 1
 ```
 
+solution)
 ```
 var isHappy = function(n) {
     console.log(n);
@@ -78,6 +79,7 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 ```
 
+solution)
 ```
 var maxSubArray = function(nums) {
     
@@ -107,6 +109,7 @@ note)
 - You must do this in-place without making a copy of the array.
 - Minimize the total number of operations.
 
+solution)
 ```
 function moveZeroes(nums) {
   var idx = 0;
@@ -152,6 +155,7 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 ```
 
+solution)
 ```
 var maxProfit = function(prices) {
     if (prices === null || prices.length === 0) {
@@ -167,5 +171,41 @@ var maxProfit = function(prices) {
     }
     
     return profit;
+};
+```
+
+### 6) Group Anagrams
+
+Given an array of strings, group anagrams together.
+
+ex)
+```
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+```
+
+solution)
+```
+var groupAnagrams = function(strs) {
+    let map = new Map()
+	
+    for(str of strs) {
+        let key = 0;
+        for (let char of str) {
+            const i = char.charCodeAt(0) 
+            key += Math.pow(i, 4)
+        }
+
+        !map.has(key) 
+            ? map.set(key, [str])
+            : map.set(key, map.get(key).concat(str))
+    }
+    
+    return Array.from(map.values())
 };
 ```
