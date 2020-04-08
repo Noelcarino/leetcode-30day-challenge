@@ -12,3 +12,4 @@ Leetcode's 30 day coding challenge
 - Day 4 (4/04) - Move Zeroes
 - Day 5 (4/05) - Best Time to Buy and Sell Stock II 
 - Day 6 (4/06) - Group Anagrams
+- Day 7 (4/07) - Counting Elements
