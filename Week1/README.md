@@ -47,6 +47,7 @@ Explanation:
 12 + 02 + 02 = 1
 ```
 
+solution)
 ```
 var isHappy = function(n) {
     console.log(n);
@@ -78,6 +79,7 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 ```
 
+solution)
 ```
 var maxSubArray = function(nums) {
     
@@ -107,6 +109,7 @@ note)
 - You must do this in-place without making a copy of the array.
 - Minimize the total number of operations.
 
+solution)
 ```
 function moveZeroes(nums) {
   var idx = 0;
@@ -152,6 +155,7 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 ```
 
+solution)
 ```
 var maxProfit = function(prices) {
     if (prices === null || prices.length === 0) {
@@ -167,5 +171,88 @@ var maxProfit = function(prices) {
     }
     
     return profit;
+};
+```
+
+### 6) Group Anagrams
+
+Given an array of strings, group anagrams together.
+
+ex)
+```
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+```
+
+solution)
+```
+var groupAnagrams = function(strs) {
+    let map = new Map()
+	
+    for(str of strs) {
+        let key = 0;
+        for (let char of str) {
+            const i = char.charCodeAt(0) 
+            key += Math.pow(i, 4)
+        }
+
+        !map.has(key) 
+            ? map.set(key, [str])
+            : map.set(key, map.get(key).concat(str))
+    }
+    
+    return Array.from(map.values())
+};
+```
+
+### 7) Counting Elements
+
+Given an integer array arr, count element x such that x + 1 is also in arr.
+
+If there're duplicates in arr, count them seperately.
+
+ex1)
+```
+Input: arr = [1,2,3]
+Output: 2
+Explanation: 1 and 2 are counted cause 2 and 3 are in arr.
+```
+
+ex2)
+```
+Input: arr = [1,1,3,3,5,5,7,7]
+Output: 0
+Explanation: No numbers are counted, cause there's no 2, 4, 6, or 8 in arr.
+```
+
+ex3)
+```
+Input: arr = [1,3,2,3,5,0]
+Output: 3
+Explanation: 0, 1 and 2 are counted cause 1, 2 and 3 are in arr.
+```
+
+ex4)
+```
+Input: arr = [1,1,2,2]
+Output: 2
+Explanation: Two 1s are counted cause 2 is in arr.
+```
+
+solution)
+```
+var countElements = function(arr) {
+    var elementArray = []
+    for (var i = 0; i <= arr.length; i++){
+      if (arr.includes(arr[i] + 1)) {
+          elementArray.push(arr[i])
+      } 
+    }
+    return elementArray.length;
 };
 ```
