@@ -17,3 +17,4 @@ Leetcode's 30 day coding challenge
 ### Week 2)
 
 - Day 8 (4/08) - Middle of the Linked List
+- Day 9 (4/09) - Backspace String Compare
