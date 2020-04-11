@@ -18,3 +18,4 @@ Leetcode's 30 day coding challenge
 
 - Day 8 (4/08) - Middle of the Linked List
 - Day 9 (4/09) - Backspace String Compare
+- Day 10 (4/10) - Min Stack
