@@ -198,3 +198,40 @@ class Stack {
     }
 }
 ```
+
+### 11) Diamter of a Binary Tree
+
+Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+ex) given a binary true
+Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
+```
+          1
+         / \
+        2   3
+       / \     
+      4   5  
+```
+
+solution)
+```
+var diameterOfBinaryTree = function(root) {
+    if (!root) return 0;
+    
+    let result = 0;
+    function depth (node){
+        if(!node) return 0;
+        
+        let leftHeight, rightHeight;
+        
+        leftHeight = node.left ? 1 + depth(node.left) : 0;
+        rightHeight = node.right ? 1 + depth(node.right) : 0;
+        
+        result = Math.max(result, leftHeight + rightHeight);
+        return Math.max(leftHeight, rightHeight);
+    }
+    depth(root);
+    
+    return result;
+};
+```
